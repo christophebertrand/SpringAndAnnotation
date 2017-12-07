@@ -1,0 +1,131 @@
+{
+	"variables": [],
+	"info": {
+		"name": "sampleReq",
+		"_postman_id": "a56d3eac-5c8d-a7d3-986e-5f0ca5b23c75",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "init",
+			"request": {
+				"url": "localhost:8080/init",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n\t{\n\t\"firstName\": \"foo\",\n\t\"lastName\" : \"buz\",\n\t\"age\": 2\n\t},\n\t{\n\t\"firstName\": \"felix\",\n\t\"lastName\" : \"muster\",\n\t\"age\": 3\n\t},\n\t\t{\n\t\"firstName\": \"fabian\",\n\t\"lastName\" : \"gardon\", \n\t\"age\" : 4\n\t},\n\t\t\t{\n\t\"firstName\": \"thomas\",\n\t\"lastName\" : \"tram\",\n\t\"age\": 5\n\t}\n]"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "search exact",
+			"request": {
+				"url": {
+					"raw": "localhost:8080/user?lastName=gun",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user"
+					],
+					"query": [
+						{
+							"key": "lastName",
+							"value": "gun",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "search like",
+			"request": {
+				"url": {
+					"raw": "localhost:8080/user/like?lastName=",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user",
+						"like"
+					],
+					"query": [
+						{
+							"key": "lastName",
+							"value": "",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "search index",
+			"request": {
+				"url": {
+					"raw": "localhost:8090/user/like?name=b",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"user",
+						"like"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "b",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "clean index",
+			"request": {
+				"url": "localhost:8090/delete",
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
